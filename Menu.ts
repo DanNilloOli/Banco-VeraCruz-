@@ -1,37 +1,26 @@
 ﻿import readlinesync = require("readline-sync");
 import { colors } from './src/util/colors';
 import { Conta } from "./src/model/conta";
+import { ContaCorrente } from "./src/model/contacorrente";
 
 export function main() {
 
     let opcao: number;
 
-    const c1: Conta = new Conta(1, 1234, 1, 'Juliao', 800000.00);
-    const c2: Conta = new Conta(2, 1234, 2, 'Marcela', 600000.00);
+    const cc1: ContaCorrente = new ContaCorrente(3, 1234, 1, 'Amanda Magro', 1000000.00, 100000.00);
+    const cc2: ContaCorrente = new ContaCorrente(4, 1234, 1, 'João da Silva', 1000.00, 100.00);
 
-    c1.visualizar();
+    cc1.visualizar();
+    cc2.visualizar();
 
-    c2.visualizar();
+    console.log(`\nSaque de R$ 25.000,00 na Conta CC1: ${cc1.sacar(25000)}`);
+    cc1.visualizar();
 
-    console.log(`\nO Saldo da conta 01 é: ${c1.saldo}`);
+    console.log(`\nSaque de R$ 1.500,00 na Conta CC2: ${cc2.sacar(15000)}`);
 
-    c2.saldo = 900000.00;
-
-    console.log(`\nO Saldo da conta 02 é: ${c2.saldo}`);
-
-    console.log(`\nSacar 100.00 Reais da Conta C1: ${c1.sacar(100)}`); // true
-    c1.visualizar();
-
-    console.log(`\nSacar 1000000.00 Reais da Conta C2: ${c2.sacar(1000000)}`); // false
-    c2.visualizar();
-
-    console.log(`\nDepositar 200000.00 Reais da Conta C1: `); 
-    c1.depositar(200000)
-    c1.visualizar();
-
-    console.log(`\nDepositar 300000.25 Reais da Conta C2: `); 
-    c2.depositar(300000.25)
-    c2.visualizar();
+    console.log(`\nDepositar R$ 3.000.99 Reais da Conta CC2: `); 
+    cc2.depositar(3000.99)
+    cc2.visualizar();
 
     while (true) {
 
