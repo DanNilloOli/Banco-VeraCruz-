@@ -14,21 +14,6 @@ export function main() {
 
     const contas: ContaController = new ContaController();
 
-    const cc1: ContaCorrente = new ContaCorrente(3, 1234, 1, 'Amanda Magro', 1000000.00, 100000.00);
-    const cc2: ContaCorrente = new ContaCorrente(4, 1234, 1, 'João da Silva', 1000.00, 100.00);
-
-    cc1.visualizar();
-    cc2.visualizar();
-
-    console.log(`\nSaque de R$ 25.000,00 na Conta CC1: ${cc1.sacar(25000)}`);
-    cc1.visualizar();
-
-    console.log(`\nSaque de R$ 1.500,00 na Conta CC2: ${cc2.sacar(15000)}`);
-
-    console.log(`\nDepositar R$ 3.000.99 Reais da Conta CC2: `); 
-    cc2.depositar(3000.99)
-    cc2.visualizar();
-
     while (true) {
 
         console.log(colors.bg.black, colors.fg.green,"\n-----------------------------------------------------");
@@ -60,7 +45,7 @@ export function main() {
         opcao = readlinesync.questionInt("");
 
         if (opcao == 9) {
-            console.log("\nBanco VeraCruz - Desde 1554!");
+            console.log(colors.bg.black, colors.fg.yellow,"\nBanco VeraCruz - Desde 1554!",colors.reset);
             sobre();
             process.exit(0);
         }
@@ -228,13 +213,13 @@ export function main() {
 }
 
 export function sobre(): void {
-    console.log("\n*****************************************************");
-    console.log("-----------------------------------------------------");
-    console.log("Projeto Desenvolvido por: ");
+    console.log(colors.bg.black, colors.fg.green, "\n*****************************************************");
+    console.log("-----------------------------------------------------", colors.reset);
+    console.log(colors.bg.black, colors.fg.yellow, "Projeto Desenvolvido por: ");
     console.log("Danillo Oliveira - danillooliveirasp@gmail.com");
-    console.log("github.com/DanNilloOli");
-    console.log("-----------------------------------------------------");
-    console.log("*****************************************************");
+    console.log("github.com/DanNilloOli", colors.reset);
+    console.log(colors.bg.black, colors.fg.green, "-----------------------------------------------------");
+    console.log("*****************************************************", colors.reset);
 }
 function keyPress(): void {
     console.log(colors.reset, "");
